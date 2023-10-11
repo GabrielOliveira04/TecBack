@@ -4,40 +4,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tech.gabrieloliveira.tecback.model.Filme;
-import tech.gabrieloliveira.tecback.service.FilmeService;
+import tech.gabrieloliveira.tecback.model.Series;
+import tech.gabrieloliveira.tecback.service.SeriesService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/filme")
-public class FilmeController {
+@RequestMapping("/series")
+public class SeriesController {
+
 
     @Autowired
-    private FilmeService service;
+    SeriesService service;
 
 
     @PostMapping
-    public ResponseEntity<Filme> salvar(@RequestBody Filme filme){
-        filme = service.salvar(filme);
-        return ResponseEntity.ok(filme);
+    public ResponseEntity<Series>salvar(@RequestBody Series series){
+        series = service.salvar(series);
+        return ResponseEntity.ok(series);
     }
-
 
     @PutMapping
-    public ResponseEntity<Filme> alterar(@RequestBody Filme filme) throws Exception {
-        filme = service.alterar(filme);
-        return ResponseEntity.ok(filme);
+    public  ResponseEntity<Series> alterar(@RequestBody Series series)throws Exception{
+        series = service.alterar(series);
+        return ResponseEntity.ok(series);
     }
-
-
     @GetMapping
-    public ResponseEntity<List<Filme>> listar(){
+    public ResponseEntity<List<Series>> listar(){
         return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<Filme> consultar(@PathVariable("id") Integer id){
+    public ResponseEntity<Series> consultar(@PathVariable("id") Integer id){
         return ResponseEntity.ok(service.consultarPorId(id));
     }
 

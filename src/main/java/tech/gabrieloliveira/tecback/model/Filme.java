@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table
+@Table(name = "tb_filme")
 @Entity
 public class Filme {
 @Id
