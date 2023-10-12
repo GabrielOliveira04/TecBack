@@ -25,4 +25,6 @@ public class Usuarios {
     @Column(name = "e-mail",unique = true)
     private String email;
 
+    @ManyToOne
+    private Assinatura assinatura;
 }

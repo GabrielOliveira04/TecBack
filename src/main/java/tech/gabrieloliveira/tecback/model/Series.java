@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -28,6 +29,10 @@ public class Series {
     private String elenco;
     private int classificacao;
     private LocalDate anoLancamento;
+    private int visualizacoes;
+
+    @ManyToOne
+    private Assinatura assinatura;
 
 
 }

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -13,17 +15,21 @@ import lombok.Setter;
 @Table(name = "tb_filme")
 @Entity
 public class Filme {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer id;
-@Column(nullable = false,length = 100)
-private String titulo;
-@Column(nullable = false,length = 255)
-private String descricao;
-@Column(nullable = false)
-private String genero;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column(nullable = false, length = 100)
+    private String titulo;
+    @Column(nullable = false, length = 500)
+    private String sinopse;
+    @Column(nullable = false)
+    private String genero;
 
-private String elenco;
-
+    private double duracao;
+    private LocalDate ano;
+    private String elenco;
+    private int visualizacoes;
+    @ManyToOne
+    private Assinatura assinatura;
 
 }
